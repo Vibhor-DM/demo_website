@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Company Name</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            opacity: 0 !important;
+        }
+    </style>
+    <script>
+        function initalize_sxi_customization() {
+            try {
+                let sxi_url_params = new URLSearchParams(window.location.search);
+                let sxi_customized_body = document.body;
+                if (!sxi_url_params.has("sxi_content")) {
+                    sxi_customized_body.style.setProperty("opacity", "100", "important");
+                    console.log("Changed SXI Personalized Body");
+                }
+                setTimeout(() => {
+                    let sxi_customized_body = document.body;
+                    sxi_customized_body.style.setProperty("opacity", "100", "important");
+                    console.log("After 3 sec timeout");
+                }, 3000);
+            } catch (err) {
+                console.error("SXI script error:", err);
+            }
+        }
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            initalize_sxi_customization();
+        } else {
+            document.addEventListener("DOMContentLoaded", initalize_sxi_customization);
+        }
+    </script>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@growthbook/growthbook/dist/bundles/auto.min.js" as="script" fetchpriority="high" />
+    <script async data-api-host="https://cdn.growthbook.io" data-client-key="sdk-WBdRoD0xOfUonzXF" src="https://cdn.jsdelivr.net/npm/@growthbook/growthbook/dist/bundles/auto.min.js"></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">Company Name</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to Company Name</h1>
+                <p class="hero-subtitle">Your trusted partner for excellence</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Us</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Quality Service</h3>
+                        <p>We deliver exceptional quality in everything we do, ensuring customer satisfaction at every
+                            step.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Expert Team</h3>
+                        <p>Our experienced professionals bring years of expertise to help you achieve your goals.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Innovation</h3>
+                        <p>We stay ahead of the curve with cutting-edge solutions and innovative approaches.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="company-info">
+            <div class="container">
+                <h2>About Our Company</h2>
+                <p>Company Name has been a leader in the industry for over a decade. We specialize in providing
+                    top-notch services and solutions to businesses of all sizes. Our commitment to excellence, customer
+                    satisfaction, and continuous improvement has made us a trusted name in the market.</p>
+                <p>We pride ourselves on building lasting relationships with our clients and delivering results that
+                    exceed expectations. Our team of dedicated professionals works tirelessly to ensure that every
+                    project is completed to the highest standards.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
