@@ -6,39 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Company Name</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            opacity: 0 !important;
-        }
-    </style>
-    <script>
-        function initalize_sxi_customization() {
-            try {
-                let sxi_url_params = new URLSearchParams(window.location.search);
-                let sxi_customized_body = document.body;
-                if (!sxi_url_params.has("sxi_content")) {
-                    sxi_customized_body.style.setProperty("opacity", "100", "important");
-                    console.log("Changed SXI Personalized Body");
-                }
-                setTimeout(() => {
-                    let sxi_customized_body = document.body;
-                    sxi_customized_body.style.setProperty("opacity", "100", "important");
-                    console.log("After 3 sec timeout");
-                }, 3000);
-            } catch (err) {
-                console.error("SXI script error:", err);
-            }
-        }
-        if (document.readyState === "complete" || document.readyState === "interactive") {
-            initalize_sxi_customization();
-        } else {
-            document.addEventListener("DOMContentLoaded", initalize_sxi_customization);
-        }
-    </script>
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@growthbook/growthbook/dist/bundles/auto.min.js" as="script" fetchpriority="high" />
-    <script async data-api-host="https://cdn.growthbook.io" data-client-key="sdk-NcOvKYZhaomnkU5C" src="https://cdn.jsdelivr.net/npm/@growthbook/growthbook/dist/bundles/auto.min.js"></script>
-
-
 </head>
 
 <body>
