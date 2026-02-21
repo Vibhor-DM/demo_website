@@ -6,7 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Company Name</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel='dns-prefetch' href='https://sdk.cognitiveux.ai'><link rel='dns-prefetch' href='https://config.cognitiveux.ai'><link rel='preconnect' href='https://sdk.cognitiveux.ai' crossorigin><link rel='preconnect' href='https://config.cognitiveux.ai' crossorigin><script>const CLIENT_KEY='sdk-vkzSA7rEM2W';!function(w,d){var C='https://config.cognitiveux.ai';var A='https://sdk.cognitiveux.ai';var T=1000;var q=new URLSearchParams(w.location.search);var n=q.has('sxi_content');var s=d.createElement('style');s.id='cogux-anti-flicker';s.textContent='body{opacity:0!important;transition:opacity 0.15s ease-out}';(d.head||d.getElementsByTagName('head')[0]).appendChild(s);var r=!1;w.__cogux_reveal=function(){if(!r){r=!0;d.body&&d.body.style.setProperty('opacity','1','important');var e=d.getElementById('cogux-anti-flicker');e&&e.remove()}};if(!n){if(d.readyState==='complete'||d.readyState==='interactive'){w.__cogux_reveal()}else{d.addEventListener('DOMContentLoaded',w.__cogux_reveal)}}else{setTimeout(w.__cogux_reveal,T)}w.__cogux_init=function(k){if(!n)return;var b=C+'/v1/bundle/'+k+'/'+btoa(location.href).replace(/=/g,'');w.__cogux_bundle_promise=fetch(b,{credentials:'omit',cache:'default',priority:'high'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).catch(function(){return null});w.__cogux_loader_time=performance.now()};w.__cogux_init(CLIENT_KEY)}(window,document);</script><script src='https://sdk.cognitiveux.ai/v1/cognitive-ux.js' data-cognitive-ux-site='sdk-vkzSA7rEM2W' fetchpriority='high' async></script>
+    <!--
+  Cognitive UX Inline Loader v2.1 - DEV ENVIRONMENT
+  Place this in <head> BEFORE any other scripts
+
+  Performance optimizations:
+  - DNS prefetch + preconnect for parallel connection setup
+  - Anti-flicker with 1000ms timeout (reduced from 3000ms)
+  - Bundle pre-fetch starts immediately (before SDK loads)
+  - High priority fetch for SDK script
+-->
+
+    <!-- DNS Prefetch + Preconnect (do this first for fastest connection setup) -->
+    <link rel="dns-prefetch" href="https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev">
+    <link rel="dns-prefetch" href="https://cognitive-ux-config-worker-dev.small-paper-de0e.workers.dev">
+    <link rel="preconnect" href="https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev" crossorigin>
+    <link rel="preconnect" href="https://cognitive-ux-config-worker-dev.small-paper-de0e.workers.dev" crossorigin>
+
+    <script>
+        /**
+         * Cognitive UX Loader v2.1 - DEV ENVIRONMENT
+         * - Injects preconnect hints
+         * - Applies anti-flicker immediately
+         * - Pre-fetches bundle before SDK loads (saves ~800ms)
+         * - Reduced anti-flicker timeout: 1000ms (was 3000ms)
+         */
+        const CLIENT_KEY = 'digital_mozarts';
+
+        !function (w, d) {
+            // URLs - DEV ENVIRONMENT
+            var C = "https://cognitive-ux-config-worker-dev.small-paper-de0e.workers.dev";
+            var A = "https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev";
+            var T = 1000; // Anti-flicker timeout (reduced from 3000ms)
+
+            // Check for personalization query param
+            var q = new URLSearchParams(w.location.search);
+            var n = q.has("sxi_content");
+
+            // Apply anti-flicker immediately
+            var s = d.createElement("style");
+            s.id = "cogux-anti-flicker";
+            s.textContent = "body{opacity:0!important;transition:opacity 0.15s ease-out}";
+            (d.head || d.getElementsByTagName("head")[0]).appendChild(s);
+
+            // Reveal function
+            var r = !1;
+            w.__cogux_reveal = function () {
+                if (!r) {
+                    r = !0;
+                    d.body && d.body.style.setProperty("opacity", "1", "important");
+                    var e = d.getElementById("cogux-anti-flicker");
+                    e && e.remove();
+                }
+            };
+
+            // Auto-reveal if no personalization or on DOM ready
+            if (!n) {
+                if (d.readyState === "complete" || d.readyState === "interactive") {
+                    w.__cogux_reveal();
+                } else {
+                    d.addEventListener("DOMContentLoaded", w.__cogux_reveal);
+                }
+            } else {
+                // Safety timeout for personalized pages
+                setTimeout(w.__cogux_reveal, T);
+            }
+
+            // Pre-fetch bundle (starts BEFORE SDK loads - saves ~800ms)
+            w.__cogux_init = function (k) {
+                if (!n) return;
+                var b = C + "/v1/bundle/" + k + "/" + btoa(location.href).replace(/=/g, "");
+                w.__cogux_bundle_promise = fetch(b, {
+                    credentials: "omit",
+                    cache: "default",
+                    priority: "high"
+                }).then(function (r) {
+                    if (!r.ok) throw new Error(r.status);
+                    return r.json();
+                }).catch(function () { return null });
+                w.__cogux_loader_time = performance.now();
+            };
+
+            // Start bundle fetch immediately
+            w.__cogux_init(CLIENT_KEY);
+        }(window, document);
+    </script>
+
+    <!-- SDK Script (high priority, async) - DEV ENVIRONMENT -->
+    <script src="https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev/v1/cognitive-ux.js"
+        data-cognitive-ux-site="sdk-EsSF3hm3_-9" fetchpriority="high" async>
+        </script>
 </head>
 
 <body>
