@@ -6,96 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Company Name</title>
     <link rel="stylesheet" href="styles.css">
-    <!--
-  Cognitive UX Inline Loader v2.1 - DEV ENVIRONMENT
-  Place this in <head> BEFORE any other scripts
 
-  Performance optimizations:
-  - DNS prefetch + preconnect for parallel connection setup
-  - Anti-flicker with 1000ms timeout (reduced from 3000ms)
-  - Bundle pre-fetch starts immediately (before SDK loads)
-  - High priority fetch for SDK script
--->
-
-    <!-- DNS Prefetch + Preconnect (do this first for fastest connection setup) -->
-    <link rel="dns-prefetch" href="https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev">
-    <link rel="dns-prefetch" href="https://cognitive-ux-config-worker-dev.small-paper-de0e.workers.dev">
-    <link rel="preconnect" href="https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev" crossorigin>
-    <link rel="preconnect" href="https://cognitive-ux-config-worker-dev.small-paper-de0e.workers.dev" crossorigin>
-
-    <script>
-        /**
-         * Cognitive UX Loader v2.1 - DEV ENVIRONMENT
-         * - Injects preconnect hints
-         * - Applies anti-flicker immediately
-         * - Pre-fetches bundle before SDK loads (saves ~800ms)
-         * - Reduced anti-flicker timeout: 1000ms (was 3000ms)
-         */
-        const CLIENT_KEY = 'sdk-EsSF3hm3_-9';
-
-        !function (w, d) {
-            // URLs - DEV ENVIRONMENT
-            var C = "https://cognitive-ux-config-worker-dev.small-paper-de0e.workers.dev";
-            var A = "https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev";
-            var T = 1000; // Anti-flicker timeout (reduced from 3000ms)
-
-            // Check for personalization query param
-            var q = new URLSearchParams(w.location.search);
-            var n = q.has("sxi_content");
-
-            // Apply anti-flicker immediately
-            var s = d.createElement("style");
-            s.id = "cogux-anti-flicker";
-            s.textContent = "body{opacity:0!important;transition:opacity 0.15s ease-out}";
-            (d.head || d.getElementsByTagName("head")[0]).appendChild(s);
-
-            // Reveal function
-            var r = !1;
-            w.__cogux_reveal = function () {
-                if (!r) {
-                    r = !0;
-                    d.body && d.body.style.setProperty("opacity", "1", "important");
-                    var e = d.getElementById("cogux-anti-flicker");
-                    e && e.remove();
-                }
-            };
-
-            // Auto-reveal if no personalization or on DOM ready
-            if (!n) {
-                if (d.readyState === "complete" || d.readyState === "interactive") {
-                    w.__cogux_reveal();
-                } else {
-                    d.addEventListener("DOMContentLoaded", w.__cogux_reveal);
-                }
-            } else {
-                // Safety timeout for personalized pages
-                setTimeout(w.__cogux_reveal, T);
-            }
-
-            // Pre-fetch bundle (starts BEFORE SDK loads - saves ~800ms)
-            w.__cogux_init = function (k) {
-                if (!n) return;
-                var b = C + "/v1/bundle/" + k + "/" + btoa(location.href).replace(/=/g, "");
-                w.__cogux_bundle_promise = fetch(b, {
-                    credentials: "omit",
-                    cache: "default",
-                    priority: "high"
-                }).then(function (r) {
-                    if (!r.ok) throw new Error(r.status);
-                    return r.json();
-                }).catch(function () { return null });
-                w.__cogux_loader_time = performance.now();
-            };
-
-            // Start bundle fetch immediately
-            w.__cogux_init(CLIENT_KEY);
-        }(window, document);
-    </script>
-
-    <!-- SDK Script (high priority, async) - DEV ENVIRONMENT -->
-    <script src="https://cognitive-ux-asset-worker-dev.small-paper-de0e.workers.dev/v1/cognitive-ux.js"
-        data-cognitive-ux-site="sdk-EsSF3hm3_-9" fetchpriority="high" async>
-        </script>
+    <link rel='dns-prefetch' href='https://assets.scalexai.co'>
+    <link rel='dns-prefetch' href='https://config.scalexai.co'>
+    <link rel='preconnect' href='https://assets.scalexai.co' crossorigin>
+    <link rel='preconnect' href='https://config.scalexai.co' crossorigin>
+    <script>const CLIENT_KEY = 'sdk--Xjxl7tb3RZ'; !function (e, t) { var n = "https://config.scalexai.co"; function o(e) { var n = t.createElement("link"); n.rel = "preconnect", n.href = e, n.crossOrigin = "anonymous", (t.head || t.getElementsByTagName("head")[0]).appendChild(n) } o(n), o("https://assets.scalexai.co"); var a = new URLSearchParams(e.location.search), r = a.has("sxi_content"), c = a.get("_cb"), i = t.createElement("style"); i.id = "cogux-anti-flicker", i.textContent = "body{opacity:0!important}", (t.head || t.getElementsByTagName("head")[0]).appendChild(i); var l = !1; e.__cogux_reveal = function () { if (!l) { l = !0, t.body && t.body.style.setProperty("opacity", "1", "important"); var e = t.getElementById("cogux-anti-flicker"); e && e.remove() } }, r ? setTimeout(e.__cogux_reveal, 3e3) : "complete" === t.readyState || "interactive" === t.readyState ? e.__cogux_reveal() : t.addEventListener("DOMContentLoaded", e.__cogux_reveal), e.__cogux_init = function (t) { if (r) { var o = n + "/v1/bundle/" + t + "/" + btoa(location.href).replace(/=/g, ""); c && (o += "?_cb=" + encodeURIComponent(c)), e.__cogux_bundle_promise = fetch(o, { credentials: "omit", cache: c ? "no-store" : "default" }).then(function (e) { if (!e.ok) throw new Error(e.status); return e.json() }).catch(function () { return null }), e.__cogux_loader_time = performance.now() } } }(window, document);</script>
+    <script src='https://assets.scalexai.co/v1/cognitive-ux.js' data-cognitive-ux-site='sdk--Xjxl7tb3RZ'
+        fetchpriority='high' async></script>
 </head>
 
 <body>
